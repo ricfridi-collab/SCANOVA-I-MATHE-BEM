@@ -1,0 +1,267 @@
+/* 1. الإعدادات العامة والألوان المتناغمة */
+:root {
+    --bg-main: #120b2e;
+    --side-bar-bg: #0d0821;
+    --accent-color: #00f2ff;
+    --card-bg: #1e144a;
+    --text-color: #e0def4;
+    --success: #00ff88;
+    
+    /* الألوان المعدلة (بدل الأحمر) */
+    --danger: #7b61ff;       /* بنفسجي مضيء للخطأ */
+    --ticker-bg: #1a103d;    /* بنفسجي عميق للشريط */
+    
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-color);
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    overflow: hidden; 
+    height: 100vh;
+}
+
+/* 2. الهيكل التنظيمي */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.side-bar {
+    width: 70px;
+    background: var(--side-bar-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid rgba(0, 242, 255, 0.1);
+    padding: 20px 0;
+    flex-shrink: 0;
+    z-index: 100;
+}
+
+.nav-brand {
+    font-weight: 900;
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+.nav-item {
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: var(--transition);
+}
+
+.nav-item.active {
+    opacity: 1;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
+/* 3. منطقة العرض (الرئيسية والاختبار) */
+.main-content, .quiz-view {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 4. كروت الدروس (القائمة) */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 18px;
+    border: 1px solid rgba(0, 242, 255, 0.05);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.card:active {
+    transform: scale(0.97);
+    border-color: var(--accent-color);
+}
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+    background: rgba(0, 242, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+.card-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.card-info span {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* 5. واجهة الاختبار والدائرة */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.back-btn {
+    background: rgba(123, 97, 255, 0.1);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    color: var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.back-btn:active {
+    background: var(--accent-color);
+    color: var(--bg-main);
+}
+
+.score-circle {
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--side-bar-bg);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+}
+
+.score-circle hr {
+    width: 40%;
+    border: 0;
+    border-top: 2px solid var(--accent-color);
+    margin: 3px 0;
+}
+
+#current-score {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-weight: 900;
+}
+
+/* 6. المدخلات والتفاعل */
+#quiz-data-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#userInput {
+    width: 100%;
+    padding: 18px;
+    background: var(--side-bar-bg);
+    border: 2px solid rgba(0, 242, 255, 0.1);
+    border-radius: 15px;
+    color: white;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 20px 0;
+    outline: none;
+}
+
+#userInput:focus {
+    border-color: var(--accent-color);
+}
+
+.action-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--accent-color);
+    color: var(--bg-main);
+    border: none;
+    border-radius: 15px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 242, 255, 0.2);
+}
+
+#feedback {
+    margin-top: 20px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+/* 7. الشريط الإعلاني المحدث */
+.ticker {
+    background: var(--ticker-bg);
+    color: var(--accent-color);
+    border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+    font-size: 0.9rem;
+    padding: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ticker-text {
+    display: inline-block;
+    animation: move 20s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* 8. الفوتر */
+.footer {
+    position: fixed;
+    bottom: 8px;
+    right: 85px;
+    font-size: 0.6rem;
+    color: var(--accent-color);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* الاستجابة للهواتف */
+@media (max-width: 450px) {
+    .main-content, .quiz-view { padding: 15px; }
+    .side-bar { width: 65px; }
+    .card-info h3 { font-size: 1rem; }
+}
