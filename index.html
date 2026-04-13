@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HUNTER MATH | Dr. Chouidira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ticker">
+        <div class="ticker-text">
+           DISIGNED BY DR.CHOUIDIRA MOHAMED   🚑🚑🚑🚑🚑🚑🚑🚑  I    دعم حملة   "نور سين" لشراء        *سيارة*الإسعاف🚑🚑🚑🚑🚑🚑🚑🚑 
+        </div>
+    </div>
+
+    <div class="app-container">
+        <nav class="side-bar">
+            <div class="nav-brand">H</div>
+            <div class="nav-items">
+                <div class="nav-item active" onclick="showHome()"><span class="icon">🏠</span></div>
+                <div class="nav-item" onclick="startQuiz('unit_01')"><span class="icon">√</span></div>
+                <div class="nav-item" onclick="startQuiz('unit_03')"><span class="icon">Σ</span></div>
+                <div class="nav-item" onclick="startQuiz('unit_05')"><span class="icon">△</span></div>
+                <div class="nav-item" onclick="startQuiz('unit_08')"><span class="icon">f</span></div>
+            </div>
+        </nav>
+
+        <main class="main-content" id="main-view">
+            <header class="main-header">
+                <div class="badge-container">
+                    <div class="badge">BEM 2026</div>
+                </div>
+            </header>
+
+            <div class="content-grid">
+                <div class="card" onclick="startQuiz('unit_01')">
+                    <div class="card-icon">√</div>
+                    <div class="card-info">
+                        <h3>الأعداد والحساب</h3>
+                        <span>PGCD والجذور التربييعية</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="startQuiz('unit_03')">
+                    <div class="card-icon">Σ</div>
+                    <div class="card-info">
+                        <h3>الحساب الحرفي</h3>
+                        <span>نشر، تحليل ومعادلات</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="startQuiz('unit_05')">
+                    <div class="card-icon">△</div>
+                    <div class="card-info">
+                        <h3>الهندسة</h3>
+                        <span>طالس، فيثاغورس والنسب</span>
+                    </div>
+                </div>
+
+                <div class="card" onclick="startQuiz('unit_08')">
+                    <div class="card-icon">f</div>
+                    <div class="card-info">
+                        <h3>الدوال والمعالم</h3>
+                        <span>الدالة الخطية والتآلفية</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="quiz-view" id="quiz-view" style="display: none;">
+            <div class="quiz-header">
+                <button class="back-btn" onclick="showHome()">✕ انسحاب</button>
+                <div class="score-circle">
+                    <span id="current-score">0</span>
+                    <hr>
+                    <span>10</span>
+                </div>
+            </div>
+            <div id="quiz-data-container"></div>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-overlay"></div>
+        <div class="footer-content">DESIGNED BY DR. CHOUIDIRA MOHAMED</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
